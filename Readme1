@@ -1,0 +1,133 @@
+# Student Class in C++: Encapsulation, Overloading and Friend Functions
+
+**Course:** Object-Oriented Programming using C++ Lab
+**Task:** Task 1 (Weeks 1–6)
+**Institution:** Nitte Meenakshi Institute of Technology (NMIT), Dept. of Electronics and Communication Engineering
+
+A C++ program built around a `Student` class that demonstrates the core OOP concepts from Weeks 1–6: encapsulation, constructors, function overloading, static members, friend functions and operator overloading.
+
+---
+
+## Features
+
+- Private student data (`name`, `rollNumber`, `marks`) with public getters
+- Default and parameterized constructors, plus a destructor
+- Automatic count of active `Student` objects using a static member
+- Overloaded `updateDetails()` to update marks only, or name and marks together
+- Friend function `displayStudentInfo()` to print private data
+- Overloaded `>` operator to compare two students by marks
+
+## C++ Concepts Demonstrated
+
+| Concept | Where it is used |
+|---------|------------------|
+| Classes and objects | `Student` class, objects `s1` and `s2` |
+| Encapsulation | `name`, `rollNumber`, `marks` are private; accessed via `getName()`, `getRollNumber()`, `getMarks()` |
+| Constructors and destructor | Default constructor, parameterized constructor, destructor that decrements the count |
+| Static members | `static int studentCount` and `static int getStudentCount()` |
+| Function overloading | `updateDetails(float)` and `updateDetails(string, float)` |
+| Friend function | `friend void displayStudentInfo(const Student &s)` |
+| Operator overloading | `bool operator>(const Student &other) const` compares marks |
+
+## Class Overview
+
+```
+Student
+├─ private:  string name, int rollNumber, float marks, static int studentCount
+├─ public:   Student(), Student(name, roll, marks), ~Student()
+│            updateDetails(float), updateDetails(string, float)
+│            getName(), getRollNumber(), getMarks()
+│            static getStudentCount()
+│            operator>(const Student &) const
+└─ friend:   displayStudentInfo(const Student &)
+```
+
+## Getting Started
+
+### Requirements
+
+- A C++ compiler such as `g++` (GCC)
+- Optional: Visual Studio Code with its integrated terminal
+
+### Compile
+
+```bash
+g++ -o student_class student_class.cpp
+```
+
+### Run
+
+```bash
+./student_class
+```
+
+On Windows, run `student_class.exe` instead.
+
+## How the Program Works
+
+1. Prints the initial student count (0).
+2. Creates two students, `s1` (Alice Smith, 101, 85.5) and `s2` (Bob Jones, 102, 92.0), and prints the count (2).
+3. Displays both students with the friend function.
+4. Calls `updateDetails(89.0)` on `s1` (marks only) and `updateDetails("Robert Jones", 94.5)` on `s2` (name and marks), then displays them again.
+5. Compares `s2 > s1` and prints which student has higher marks.
+
+## Sample Output
+
+```
+===== OOP Using C++ - Task 1 =====
+
+Initial Total Students: 0
+
+Total Students after admission: 2
+
+Details of Student 1:
+----------------------------------------
+Student Name : Alice Smith
+Roll Number  : 101
+Marks        : 85.5
+----------------------------------------
+
+Details of Student 2:
+----------------------------------------
+Student Name : Bob Jones
+Roll Number  : 102
+Marks        : 92
+----------------------------------------
+
+--- Updating Student 1 Details ---
+----------------------------------------
+Student Name : Alice Smith
+Roll Number  : 101
+Marks        : 89
+----------------------------------------
+
+--- Updating Student 2 Details ---
+----------------------------------------
+Student Name : Robert Jones
+Roll Number  : 102
+Marks        : 94.5
+----------------------------------------
+
+--- Comparing Students Based on Marks ---
+Robert Jones has higher marks than Alice Smith.
+```
+
+## Repository Structure
+
+```
+.
+├── student_class.cpp   # Source code
+├── screenshots/        # Output screenshots
+├── Report.pdf          # Task 1 lab report
+└── README.md
+```
+
+## Author
+
+- **Name:** _Your Name_
+- **USN:** _Your USN_
+- **Section / Batch:** _Your Section_
+
+## Declaration
+
+This project was completed as part of the OOP using C++ Lab coursework and represents my own work.
